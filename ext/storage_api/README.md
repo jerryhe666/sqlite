@@ -21,6 +21,7 @@ make sqlite3.c sqlite3.h
 
 This produces the generated headers under `src/` and the amalgamated sources in the root directory. After that, build
 `libsqlite3.a` (for example, `make` or `./configure && make` will emit `.libs/libsqlite3.a`). Then run:
+First build `libsqlite3.a` from the SQLite root (for example, `./configure && make` will emit `.libs/libsqlite3.a`). Then run:
 
 ```sh
 make SQLITE_LIB=../..//.libs/libsqlite3.a
