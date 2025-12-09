@@ -11,6 +11,16 @@ This directory hosts an experimental, SQL-free storage API built directly on SQL
 - `Makefile` – builds a static library (`libstorage_api.a`) and the demo (`kv_demo`).
 
 ## Building
+Before building the storage API, generate the SQLite amalgamation and headers from the repo root so `sqliteInt.h`, `btreeInt.h`,
+and friends are available to the wrapper:
+
+```sh
+./configure
+make sqlite3.c sqlite3.h
+```
+
+This produces the generated headers under `src/` and the amalgamated sources in the root directory. After that, build
+`libsqlite3.a` (for example, `make` or `./configure && make` will emit `.libs/libsqlite3.a`). Then run:
 First build `libsqlite3.a` from the SQLite root (for example, `./configure && make` will emit `.libs/libsqlite3.a`). Then run:
 
 ```sh
